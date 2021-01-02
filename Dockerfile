@@ -1,4 +1,5 @@
-FROM php:7.4-apache  
-COPY ./website /var/www/html/
-WORKDIR /var/www/html
-CMD [ "php", "./index.php" ]
+FROM devopsedu/webapp  
+COPY website /var/www/html/
+RUN rm /var/www/html/index.html
+CMD apachectl -D FOREGROUND
+#CMD [ "php", "./index.php" ]
